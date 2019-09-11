@@ -1,0 +1,83 @@
+@import "~bulma/bulma.sass";
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+
+body{
+    background:#efefef;
+    height:100vh;
+}
+
+.header__root{
+    padding:1em;
+}
+
+.header__root--figure{
+    margin:0;
+}
+
+.header__root--figure img{
+    width:300px;
+}
+
+
+.section__root{
+    width:440px;
+    margin:0 auto;
+    padding:3em;
+    background:white;
+    border-radius:10px;
+}
+
+.root__form--title{
+    text-align: center;
+    padding-bottom:.5em;
+    font-family: 'Roboto', sans-serif;
+    color:#1F4160;
+    font-size:20px;
+    font-weight: bold;
+}
+
+.section__root--form .label{
+    color:#1F4160;
+    font-family: 'Lato' , sans-serif;
+    font-size:13px;
+}
+
+.section__root--form .field{
+    margin:1.5em 0;
+}
+
+.input{
+    height:45px;
+}
+
+.button{
+    width:100%;
+    background:#F6E01C !important;
+    font-family: 'Lato' , sans-serif;
+    height:45px;
+    color:white;
+}
+
+.button:hover{
+    color:white;
+}
+
+
+/*helpers*/
+.message{
+ border:1px solid red;
+ margin-top:15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

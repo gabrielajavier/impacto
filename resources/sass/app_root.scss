@@ -1,0 +1,91 @@
+@import "~bulma/bulma.sass";
+@import "iconos/fontawesome.scss";
+@import "iconos/solid.scss";
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+
+/*estilos del dashboard*/
+@import "./dashboard_root/dashboard_panel.scss";
+
+body{
+    padding: 0;
+    margin:0;
+}
+
+.dashboard__root{
+    padding:.5em;
+    display: grid;
+    grid-template-columns: 80% 15%;
+    align-items:center;
+    margin:0 auto;
+}
+
+.dashboard__root--figure{
+    margin:0px;
+    text-align: center;
+}
+
+.dashboard__root--figure img{
+    width:250px;
+}
+
+.dashboard__root--nav{
+    justify-self:center;
+}
+
+.root__nav--user {
+    color:#254051;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    padding:0 .4em;
+}
+
+.root__nav--avatar{
+    color:#254051;
+    font-size:30px;
+}
+
+.root__nav--sesion{
+    border-radius:10px;
+    position: absolute;
+    right:8%;
+    top:15%;
+    padding:2em;
+    background:#F6E01C;
+    color: #1c3643;
+    visibility: hidden;
+    z-index: 70;
+    opacity: .8;
+}
+
+.root__nav--sesion a{
+    color:white;
+    font-weight: bold;
+    text-decoration:none;
+    font-family: 'Lato', sans-serif;
+}
+
+.root__nav--sesion a:hover{
+    text-decoration:underline;
+}
+
+/*helpers*/
+.close{
+  color:white;
+}
+
+.show{
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

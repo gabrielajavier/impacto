@@ -1,0 +1,1 @@
+$('.col-eq').colequalizer();
