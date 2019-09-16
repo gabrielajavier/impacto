@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard Root</title>
+    <title>Dashboard Usuario</title>
     <link rel="stylesheet" href="{{ mix('/css/dashboard_root/login_root.css')}}">
 </head>
 <body>
@@ -17,7 +17,7 @@
      <section class="section__root">
          <form class="section__root--form" method="post" action="/login_root">
               @csrf
-              <h2 class="root__form--title">Inicio Sesion Root</h2>
+              <h2 class="root__form--title">Inicio Sesion </h2>
              <div class="field">
                  <label class="label">Usuario</label>
                  <div class="control">

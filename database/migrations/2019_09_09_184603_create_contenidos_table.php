@@ -4,18 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContenidoTable extends Migration
+class CreateContenidosTable extends Migration
 {
 
     public function up()
     {
-        Schema::create('contenido', function (Blueprint $table) {
+        Schema::create('contenidos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('usuario_id');
             $table->unsignedInteger('categoria_id');
-            $table->string('contenido_titulo');
-            $table->string('contenido_imagen');
-            $table->longText('contenido_main');
+            $table->string('contenidotitulo');
+            $table->string('contenidoimagen');
+            $table->longText('contenidomain');
             $table->timestamps();
         });
     }

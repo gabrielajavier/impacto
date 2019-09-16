@@ -82,7 +82,7 @@
                     <td class="table__column--user">
                         <span class="table__icon--user">
                             <i class="fas fa-user"></i>
-                             {{$user->user}}
+                             {{$user->usuario}}
                         </span>
                     </td>
                     <td>{{$user->email}}</td>
@@ -94,7 +94,6 @@
                         @endif
                     </td>
                     <td>
-
                        <button id="btn__edit--user" class="table__button--edit fas fa-edit" data-id="{{$user->id}}">
                            Editar
                        </button>

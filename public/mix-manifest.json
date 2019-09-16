@@ -4,15 +4,8 @@
     "/css/app_root.css": "/css/app_root.css",
     "/css/dashboard_root/login_root.css": "/css/dashboard_root/login_root.css",
     "/css/dashboard_root/noticias.css": "/css/dashboard_root/noticias.css",
-    "/css/dashboard_root/especial.css": "/css/dashboard_root/especial.css",
-    "/css/dashboard_root/musica.css": "/css/dashboard_root/musica.css",
-    "/css/dashboard_root/literatura.css": "/css/dashboard_root/literatura.css",
-    "/css/dashboard_root/heroes.css": "/css/dashboard_root/heroes.css",
     "/js/app_root.js": "/js/app_root.js",
-    "/js/dashboard/especial.js": "/js/dashboard/especial.js",
-    "/js/dashboard/heroes.js": "/js/dashboard/heroes.js",
-    "/js/dashboard/literatura.js": "/js/dashboard/literatura.js",
+    "/js/dashboard/categoria.js": "/js/dashboard/categoria.js",
     "/js/dashboard/mantenimiento.js": "/js/dashboard/mantenimiento.js",
-    "/js/dashboard/musica.js": "/js/dashboard/musica.js",
     "/js/dashboard/noticias.js": "/js/dashboard/noticias.js"
 }

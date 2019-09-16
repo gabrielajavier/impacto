@@ -66,16 +66,17 @@ let formAjaxGetEditUser = (id) => {
     fetch(`/mantenimiento/${id}`)
        .then(response => response.json())
        .then(data => {
+               console.log(data)
                fillFormData(...data)
        })
 }
 
 
-let fillFormData = ({user,email,password,estado,id}) => {
+let fillFormData = ({usuario,email,clave,estado,id}) => {
         variables.form_user.action = `/mantenimiento/${id}`
-        variables.form_user.usuario.value = user
+        variables.form_user.usuario.value = usuario
         variables.form_user.correo.value = email
-        variables.form_user.clave.value = password
+        variables.form_user.clave.value = clave
         variables.form_user.idAction.value = id
         index_input_radio  = estado === true ? 0 : 1
         variables.form_user.estado[index_input_radio].checked = true

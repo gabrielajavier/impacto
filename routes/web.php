@@ -15,14 +15,15 @@ Route::get('/login_root','RootController@index');
 Route::post('/login_root','RootController@login');
 Route::get('/sesion_close','DashboardRootController@closeSesion');
 Route::middleware(['login'])->group(function () {
-    Route::get('/panel/noticias','DashboardRootController@index');
-    Route::get('/panel/especial','DashboardRootController@especial');
-    Route::get('/panel/musica','DashboardRootController@musica');
-    Route::get('/panel/literatura','DashboardRootController@literatura');
-    Route::get('/panel/heroes','DashboardRootController@heroes');
+    /*rutas categoria*/
+    Route::get('/panel/categoria/','DashboardRootController@index');
+    Route::post('/contenido/principal','CategoriaController@saveContenidoPrincipal');
+    Route::post('/contenido/enlaces/{id}','CategoriaController@saveEnlaces');
+    Route::post('/contenido/secundario/{id}','categoriaController@saveSecundario');
+    Route::post('/contenido/secundario2/{id}','categoriaController@saveSecundarioTwo');
+    Route::post('/contenido/secundario3/{id}','categoriaController@saveSecundarioThree');
 
     Route::get('/mantenimiento','MantenimientoController@index');
-    Route::get('/mantenimiento/menu','MantenimientoController@menu');
     Route::post('/mantenimiento','MantenimientoController@addUser');
     Route::get('/mantenimiento/{id}','MantenimientoController@editUser');
     Route::post('/mantenimiento/{id}','MantenimientoController@saveEditUser');

@@ -18,9 +18,9 @@ class UserRepository
         return DB::table('usuarios')
                ->where('id',$request->get('id'))
                ->update([
-                     'user' => $request->get('usuario'),
+                     'usuario' => $request->get('usuario'),
                      'email' => $request->get('correo') ,
-                     'password' => $request->get('clave'),
+                     'clave' => $request->get('clave'),
                      'estado' => $request->get('estado'),
                      'role' => 'admin'
               ]);

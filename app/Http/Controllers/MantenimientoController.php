@@ -18,9 +18,9 @@ class MantenimientoController extends Controller
          $action = $request->input('action');
          if($action == "add"){
                $usuario = new Usuario;
-               $usuario->user = $request->input('usuario');
+               $usuario->usuario = $request->input('usuario');
                $usuario->email = $request->input('correo');
-               $usuario->password = $request->input('clave');
+               $usuario->clave = $request->input('clave');
                $usuario->estado = $request->input('estado');
                $usuario->role = "admin";
                return response()->json($usuario->save())->content();
@@ -31,13 +31,6 @@ class MantenimientoController extends Controller
         $user = UserRepository::findUser($id);
         return response()->json($user);
     }
-
-
-    public function menu(){
-        $categorias = DB::table('categoria')->get();
-        return response()->json($categorias);
-    }
-
 
 
     public function saveEditUser(Request $request){

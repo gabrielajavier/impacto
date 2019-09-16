@@ -81,78 +81,69 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/app_root.js":
-/*!**********************************!*\
-  !*** ./resources/js/app_root.js ***!
-  \**********************************/
+/***/ "./resources/js/dashboard/categoria.js":
+/*!*********************************************!*\
+  !*** ./resources/js/dashboard/categoria.js ***!
+  \*********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _dashboard_variables_noticias__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard/variables_noticias */ "./resources/js/dashboard/variables_noticias.js");
+/* harmony import */ var _variables_categorias__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variables_categorias */ "./resources/js/dashboard/variables_categorias.js");
 
-var menu_icon = document.getElementById('menu_icon');
-var menu_close = document.getElementById('menu_close');
-var menu_items = document.querySelectorAll('.panel__categories--item a');
-
-menu_icon.onclick = function () {
-  menu_close.classList.toggle('show');
-};
-/*fetch("/mantenimiento/menu")
-    .then(response => response.json())
-    .then(data => {
-        //let noticiaId = data[0].id
-        //variables_noticias.form_noticias_principal.action = `/panel/noticias/${noticiaId}`
-        data.forEach((item,index) => {
-           menu_items[index].href = `${menu_items[index].href}/${item.id}`
-           menu_items[index].id = item.id
-           menu_items[index].text = item.nombre_categoria
-    })})*/
+var id_categoria, texto_categoria;
+Array.prototype.forEach.call(_variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].inputs_radio, function (item) {
+  item.onclick = function (e) {
+    _variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].tipo_archivo.value = e.target.value;
+    _variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].tipo_archivo2.value = e.target.value;
+  };
+});
+_variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].select_categorias.addEventListener('change', function (e) {
+  id_categoria = _variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].select_categorias.value;
+  texto_categoria = _variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].select_categorias.options[_variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].select_categorias.selectedIndex].innerText;
+  _variables_categorias__WEBPACK_IMPORTED_MODULE_0__["default"].title_categoria.innerText = texto_categoria;
+});
 
 /***/ }),
 
-/***/ "./resources/js/dashboard/variables_noticias.js":
-/*!******************************************************!*\
-  !*** ./resources/js/dashboard/variables_noticias.js ***!
-  \******************************************************/
+/***/ "./resources/js/dashboard/variables_categorias.js":
+/*!********************************************************!*\
+  !*** ./resources/js/dashboard/variables_categorias.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var tabs = document.querySelectorAll(' #noticias_list a');
-var noticia_content1 = document.getElementById('noticia_content_1');
-var noticia_content2 = document.getElementById('noticia_content_2');
-var noticia_content3 = document.getElementById('noticia_content_3');
-var form_content1 = document.getElementById('form_content1');
-var form_content2 = document.getElementById('form_content2');
-var form_content3 = document.getElementById('form_content3');
+var select_categorias = document.getElementById('categorias');
+var title_categoria = document.getElementById('title_categoria');
+var inputs_radio = document.querySelectorAll('#noticias_secundario input[type="radio"]');
+var tipo_archivo = document.getElementById('tipo_archivo');
+var tipo_archivo2 = document.getElementById('tipo_archivo2');
 /* harmony default export */ __webpack_exports__["default"] = ({
-  tabs: tabs,
-  noticia_content1: noticia_content1,
-  noticia_content2: noticia_content2,
-  noticia_content3: noticia_content3,
-  form_content1: form_content1,
-  form_content2: form_content2,
-  form_content3: form_content3
+  select_categorias: select_categorias,
+  title_categoria: title_categoria,
+  inputs_radio: inputs_radio,
+  tipo_archivo: tipo_archivo,
+  tipo_archivo2: tipo_archivo2
 });
 
 /***/ }),
 
-/***/ 1:
-/*!****************************************!*\
-  !*** multi ./resources/js/app_root.js ***!
-  \****************************************/
+/***/ 4:
+/*!***************************************************!*\
+  !*** multi ./resources/js/dashboard/categoria.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\51920\Desktop\app_mmm\mmm\resources\js\app_root.js */"./resources/js/app_root.js");
+module.exports = __webpack_require__(/*! C:\Users\51920\Desktop\app_mmm\mmm\resources\js\dashboard\categoria.js */"./resources/js/dashboard/categoria.js");
 
 
 /***/ })

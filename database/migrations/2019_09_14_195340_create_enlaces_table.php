@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRootTable extends Migration
+class CreateEnlacesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateRootTable extends Migration
      */
     public function up()
     {
-        Schema::create('root', function (Blueprint $table) {
+        Schema::create('enlaces', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_root');
-            $table->string('password_root');
-            $table->string('role');
+            $table->unsignedInteger('contenido_id');
+            $table->string('enlace_titulo');
+            $table->string('enlace_url');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateRootTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('root');
+        Schema::dropIfExists('enlaces');
     }
 }
