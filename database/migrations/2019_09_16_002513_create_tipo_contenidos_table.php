@@ -17,7 +17,7 @@ class CreateTipoContenidosTable extends Migration
             $table->bigIncrements('id');
             $table->string('tipo_contenido_url')->nullable();
             $table->string('tipo_contenido_leyenda');
-            $table->string('tipo_contenido_texto');
+            $table->longText('tipo_contenido_texto');
             $table->string('tipo_contenido_file')->nullable();
             $table->string('tipo_archivo');
             $table->unsignedInteger('contenido_id');

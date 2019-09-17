@@ -22,6 +22,8 @@ Route::middleware(['login'])->group(function () {
     Route::post('/contenido/secundario/{id}','categoriaController@saveSecundario');
     Route::post('/contenido/secundario2/{id}','categoriaController@saveSecundarioTwo');
     Route::post('/contenido/secundario3/{id}','categoriaController@saveSecundarioThree');
+    Route::post('/contenido/video/{id}','categoriaController@saveVideo');
+
 
     Route::get('/mantenimiento','MantenimientoController@index');
     Route::post('/mantenimiento','MantenimientoController@addUser');

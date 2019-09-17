@@ -14,7 +14,7 @@ class CreateContenidosTable extends Migration
             $table->unsignedInteger('usuario_id');
             $table->unsignedInteger('categoria_id');
             $table->string('contenidotitulo');
-            $table->string('contenidoimagen');
+            $table->longText('contenidoimagen');
             $table->longText('contenidomain');
             $table->timestamps();
         });

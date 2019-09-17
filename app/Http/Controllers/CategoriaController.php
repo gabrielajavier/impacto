@@ -64,12 +64,8 @@ class CategoriaController extends Controller
      {
          $idcontenido = $id;
          $tipo_archivo = $request->input('tipo_archivo');
-
-         if($tipo_archivo == "imagenes"){
-            $this->data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
-         }
-
-          if($this->data->save()){
+          $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+          if($data->save()){
               $request->session()->flash("mensaje3", "Contenido Secundario Creado");
               return redirect('/panel/categoria');
           }
@@ -78,16 +74,34 @@ class CategoriaController extends Controller
      public  function saveSecundarioTwo(Request $request,$id){
          $idcontenido = $id;
          $tipo_archivo = $request->input('tipo_archivo');
-         $data = null;
-         if($tipo_archivo == "imagenes"){
-             $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
-         }
-
+         $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
          if($data->save()){
              $request->session()->flash("mensaje4", "Contenido Secundario Creado");
              return redirect('/panel/categoria');
          }
      }
+
+
+     public function saveSecundarioThree(Request $request, $id){
+         $idcontenido = $id;
+         $tipo_archivo = $request->input('tipo_archivo');
+         $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+         if($data->save()){
+             $request->session()->flash("mensaje5", "Contenido Secundario Creado");
+             return redirect('/panel/categoria');
+         }
+     }
+
+
+     public function saveVideo(Request $request , $id){
+         $idcontenido = $id;
+         $tipo_archivo = $request->input('tipo_archivo');
+         $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+         return response()->json($data->save());
+     }
+
+
+
 
 
 }
