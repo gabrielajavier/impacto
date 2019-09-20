@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -11,12 +12,16 @@ class HomeController extends Controller
     }
 
     public function noticias(){
-        return view('categoria-noticia');
+        $noticias = DB::table('contenidos')
+          ->where('categoria_id',1)->get();
+        return view('categoria-noticia',['noticias' => $noticias,'categoria'=>'noticias']);
     }
 
 
     public function especial(){
-        return view('categoria-especial');
+        $especial = DB::table('contenidos')
+            ->where('categoria_id',2)->get();
+        return view('categoria-especial',['especiales' => $especial,'categoria'=>'especial']);
     }
 
     public function musica(){
@@ -24,12 +29,16 @@ class HomeController extends Controller
     }
 
     public function literatura(){
-       return view('categoria-literatura');
+        $literatura = DB::table('contenidos')
+            ->where('categoria_id',4)->get();
+       return view('categoria-literatura',['literaturas' => $literatura,'categoria'=>'literatura']);
     }
 
 
      public function heroes(){
-        return view('categoria-heroes');
+         $heroe = DB::table('contenidos')
+             ->where('categoria_id',5)->get();
+         return view('categoria-heroes',['heroes' => $heroe,'categoria'=>'heroes']);
      }
 
 

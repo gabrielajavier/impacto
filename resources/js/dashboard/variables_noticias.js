@@ -1,4 +1,4 @@
-let tabs = document.querySelectorAll(' #noticias_list a')
+let tabs = document.querySelectorAll('#noticias_list a')
 let noticia_content1 = document.getElementById('noticia_content_1')
 let noticia_content2 = document.getElementById('noticia_content_2')
 let noticia_content3 = document.getElementById('noticia_content_3')

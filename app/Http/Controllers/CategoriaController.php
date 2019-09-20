@@ -19,6 +19,7 @@ class CategoriaController extends Controller
     }
 
     public function saveContenidoPrincipal(Request $request){
+        $bandera = false;
         $usuario = $request->session()->get('usuario');
         $usuario_id = DB::table('usuarios')->where('usuario',
           $usuario)->value('id');
@@ -36,72 +37,62 @@ class CategoriaController extends Controller
          }
 
            if($contenido->save()){
-               $request->session()->put('s_contenido',$contenido->id);
+               $id_categoria = $contenido->id;
+               $bandera = true;
            }
-           $request->session()->flash("mensaje", "Contenido Creado");
-           return redirect('/panel/categoria');
+           return response()->json([$bandera,$id_categoria]);
      }
 
 
-     public function saveEnlaces(Request $request,$id){
-        $idcontenido = $id;
-        $collect  = collect($request->all())->except('_token');
-        $enlaces_data = CategoriaRepository::dataEnlaces($collect);
-
+     public function saveEnlaces(Request $request){
+        $enlaces = explode(",",$request->input('enlace'));
+        $urls = explode(",",$request->input('url'));
+        $bandera = false;
+        $enlaces_data = CategoriaRepository::dataEnlaces($enlaces,$urls);
         foreach ($enlaces_data as $enlace){
-            $enlaces = new Enlace;
-            $enlaces->contenido_id = $idcontenido;
-            $enlaces->enlace_titulo = $enlace["titulo"];
-            $enlaces->enlace_url = $enlace["url"];
-            $enlaces->save();
+            $enlacess = new Enlace;
+            $enlacess->contenido_id = $request->get('idcontenido');
+            $enlacess->enlace_titulo = $enlace["titulo"];
+            $enlacess->enlace_url = $enlace["url"];
+            $enlacess->save();
+            $bandera = true;
         }
-         $request->session()->flash("mensaje2", "Enlaces Creados");
-         return redirect('/panel/categoria');
+        return response()->json($bandera);
      }
 
 
-     public function saveSecundario(Request $request,$id)
+     public function saveSecundario(Request $request)
      {
-         $idcontenido = $id;
-         $tipo_archivo = $request->input('tipo_archivo');
-          $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+          $bandera = false;
+          $data = CategoriaRepository::saveContentSecundario($request);
           if($data->save()){
-              $request->session()->flash("mensaje3", "Contenido Secundario Creado");
-              return redirect('/panel/categoria');
+              $bandera = true;
           }
+           return response()->json($bandera);
      }
 
-     public  function saveSecundarioTwo(Request $request,$id){
-         $idcontenido = $id;
-         $tipo_archivo = $request->input('tipo_archivo');
-         $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+     public  function saveSecundarioTwo(Request $request){
+         $bandera = false;
+         $data = CategoriaRepository::saveContentSecundario($request);
          if($data->save()){
-             $request->session()->flash("mensaje4", "Contenido Secundario Creado");
-             return redirect('/panel/categoria');
+             $bandera = true;
          }
+         return response()->json($bandera);
      }
 
 
-     public function saveSecundarioThree(Request $request, $id){
-         $idcontenido = $id;
-         $tipo_archivo = $request->input('tipo_archivo');
-         $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+     public function saveSecundarioThree(Request $request){
+         $bandera = false;
+         $data = CategoriaRepository::saveContentSecundario($request);
          if($data->save()){
-             $request->session()->flash("mensaje5", "Contenido Secundario Creado");
-             return redirect('/panel/categoria');
+             $bandera = true;
          }
+         return response()->json($bandera);
      }
 
 
-     public function saveVideo(Request $request , $id){
-         $idcontenido = $id;
-         $tipo_archivo = $request->input('tipo_archivo');
-         $data = CategoriaRepository::saveContentSecundario($request,$idcontenido,$tipo_archivo);
+     public function saveVideo(Request $request){
+         $data = CategoriaRepository::saveContentSecundario($request);
          return response()->json($data->save());
      }
-
-
-
-
-
 }

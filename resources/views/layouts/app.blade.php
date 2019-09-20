@@ -37,7 +37,7 @@
                                 <span><a href="index-pt.html">Português</a></span>
                             </div>
                             <a href="/" id="logo_menu" class="pd-0">
-                                <img src="imagenes/impacto_evangelistico.png">
+                                <img src="../../imagenes/impacto_evangelistico.png">
                             </a>
                         </div>
                         <li class="share hidden-lg hidden-md hidden-sm">
@@ -58,10 +58,10 @@
                 <li><a class="pd-0" href="/heroes">HÉROES DE LA FE</a></li>
                 <li class="btn_"><span><a href="/suscribete" >SUSCRÍBETE</a></span></li>
 
-                <li class="redes-ft">
-                    <span><a class="pd-0" href=""><i class="icon-facebook"></i></a></span>
-                    <span><a class="pd-0" href=""><i class="icon-tweet"></i></a></span>
-                    <span><a class="pd-0" href=""><i class="icon-instagram"></i></a></span>
+                <li>
+                    <span><a class="" href=""><img src="../../imagenes/icon_facebook.png"></a></span>
+                    <span><a class="" href=""><img src="../../imagenes/icon_twitter.png"></a></span>
+                    <span><a class="" href=""><img src="../../imagenes/icon_instagram.png"></a></span>
                 </li>
                 <li class="share">
                     <span><a class="pd-0 hidden-xs"><i class="icon-search"></i></a></span>
@@ -79,7 +79,7 @@
         <div class="row col-eq">
             <div class="col-xs-12 col-sm-2 col-md-3 col-sm-offset-1 col-md-offset-1 ">
                 <div class="img_impacto">
-                    <img src="imagenes/impacto_evangelistico.png">
+                    <img src="../../imagenes/impacto_evangelistico.png">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2">
@@ -95,23 +95,20 @@
             <div class="col-xs-12 col-sm-3 col-md-2">
                 <div class="box_ft_">
                     <h4>CONTENIDO</h4>
-                    <p><a href="">Noticias </a></p>
-                    <p><a href="">Especiales </a></p>
-                    <p><a href="">Música </a></p>
-                    <p><a href="">Literatura </a></p>
-                    <p><a href="">Héroes de la fe </a></p>
-                    <p><a href="">Historias de vida </a></p>
-                    <p><a href="">Devocional </a></p>
-                    <p><a href="">Eventos </a></p>
+                    <p><a href="/noticias">Noticias </a></p>
+                    <p><a href="/especial">Especiales </a></p>
+                    <p><a href="/musica">Música </a></p>
+                    <p><a href="/literatura">Literatura </a></p>
+                    <p><a href="/heroes">Héroes de la fe </a></p>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-2 col-md-2">
                 <div class="box_ft_">
                     <h4>SÍGUENOS</h4>
-                    <div class="redes-ft">
-                        <span><a class="pd-0" href=""><i class="icon-facebook"></i></a></span>
-                        <span><a class="pd-0" href=""><i class="icon-tweet"></i></a></span>
-                        <span><a class="pd-0" href=""><i class="icon-instagram"></i></a></span>
+                    <div class="footer_images">
+                        <span><a class="pd-0" href=""><img src="../../imagenes/icon_facebook1.png"></a></span>
+                        <span><a class="pd-0" href=""><img src="../../imagenes/icon_twitter1.png"></a></span>
+                        <span><a class="pd-0" href=""><img src="../../imagenes/icon_instagram1.png"></a></span>
                     </div>
                     <h4>Para más novedades</h4>
                     <div class="btn_ btn_2">

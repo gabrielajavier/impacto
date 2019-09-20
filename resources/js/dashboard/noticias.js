@@ -3,12 +3,12 @@ let inputs_noticias = document.querySelectorAll('#noticias_enlaces input[type="t
 
 
 let tabSelect = (tab_select) => {
-    v_noticias.tabs.forEach(item =>{
+   v_noticias.tabs.forEach(item =>{
         let data_tab = item.dataset.tab
         let element  = document.getElementById(data_tab)
         if(tab_select === data_tab){
              item.classList.add('active_link')
-            element.classList.remove('hide')
+             element.classList.remove('hide')
         }else{
             item.classList.remove('active_link')
             element.classList.add('hide')

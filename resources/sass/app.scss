@@ -3,3 +3,34 @@
 @import "./slick.scss";
 @import "./slick-theme.scss";
 
+
+.footer_images img{
+    width:40px;
+    background:#FFC107;
+    border-radius:50%;
+}
+
+.share_images img{
+    width:50px;
+    margin:0 .5em;
+    border-radius:50%;
+}
+
+.noticias_images{
+    text-align:center;
+}
+
+
+.noticias_images figure{
+    padding:0;
+}
+
+
+.noticias_images figure img{
+     width:290px;
+     height:290px;
+}
+
+
+
+

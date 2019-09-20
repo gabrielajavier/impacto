@@ -10,6 +10,9 @@ Route::get('/heroes','HomeController@heroes');
 Route::get('/suscribete','HomeController@suscribete');
 
 
+Route::get('/contenido/{categoria}/{idcontenido}','TipoContenidoController@index');
+
+
 /*rutas dashboard root*/
 Route::get('/login_root','RootController@index');
 Route::post('/login_root','RootController@login');

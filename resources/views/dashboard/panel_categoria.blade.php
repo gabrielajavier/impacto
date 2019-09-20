@@ -29,16 +29,16 @@
     <section class="section__panel--noticias">
         <div class="tabs">
             <ul id="noticias_list" class="panel__noticias--list">
-                <li><a data-tab="noticias_principal"><span class="categoria_number">1</span> Contenido Principal</a></li>
-                <li><a data-tab="noticias_secundario"><span class="categoria_number">2</span> Contenido Secundario</a></li>
-                <li><a data-tab="noticias_enlaces"><span class="categoria_number">3</span> Enlaces</a></li>
+                <span class="categoria_number">1</span><li><a data-tab="noticias_principal">Contenido Principal</a></li>
+                <span class="categoria_number">2</span><li><a data-tab="noticias_secundario">Contenido Secundario</a></li>
+                <span class="categoria_number">3</span><li><a data-tab="noticias_enlaces">Enlaces</a></li>
             </ul>
         </div>
 
-        <div id="noticias_principal" class="noticias_principal hide">
+        <div id="noticias_principal" class="noticias_principal">
            <form method="post" id="form_categoria_principal" action="/contenido/principal" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="idcategoria" value="1">
+            <input type="hidden" name="idcategoria" value="1" id="hidden_principal">
             <div class="field">
                 <div class="control">
                     <label for="">Titulo</label>
@@ -53,7 +53,7 @@
             </div>
             <div class="file">
                 <label class="file-label">
-                    <input class="file-input" type="file" name="contenido_imagen" accept="image/jpeg,image/png,image/jpg">
+                    <input class="file-input" type="file" name="contenido_imagen" id="contenido_imagen" accept="image/jpeg,image/png,image/jpg">
                     <span class="file-cta">
                      <span class="file-icon">
                        <i class="fas fa-upload"></i>
@@ -70,17 +70,15 @@
               </div>
           </div>
          </form>
-       @if($mensaje = Session::get('mensaje'))
-        <div class="message is-warning">
+        <div class="message is-warning hide" id="mensaje_principal">
              <div class="message-body">
-                  {{ $mensaje }}
+                  CONTENIDO CREADO
              </div>
        </div>
-       @endif
     </div>
 
         <!---CONTENIDO SECUNDARIO -->
-        <div id="noticias_secundario" class="noticias_secundario">
+        <div id="noticias_secundario" class="noticias_secundario hide">
             <div class="control noticias_secundario--type">
                 <h3 class="noticias_secundario--title">Selecciona Solo un tipo de Contenido:</h3>
                 <label class="radio">
@@ -109,8 +107,9 @@
                          </a>
                     </span>
                    </div>
-                   <form id="form_content1" class="form_content1 hide" method="post" action="/contenido/secundario/{{Session::get('s_contenido')}}" enctype="multipart/form-data">
+                   <form id="form_content1" class="form_content1 hide" method="post" action="" enctype="multipart/form-data">
                        @csrf
+                       <input type="hidden" name="idcontenido" id="hidden_content1">
                        <input type="hidden" name="tipo_archivo" id="tipo_archivo" value="imagenes">
                        <div class="field">
                            <label>Titulo Imagen</label>
@@ -127,7 +126,7 @@
                        </div>
                        <div class="file">
                            <label class="file-label">
-                               <input class="file-input" type="file" name="file_imagen" required>
+                               <input class="file-input" type="file" name="file_imagen" id="contenido_imagen1" required>
                                <span class="file-cta">
                               <span class="file-icon">
                                 <i class="fas fa-upload"></i>
@@ -146,13 +145,12 @@
                            </div>
                        </div>
                    </form>
-                   @if($mensaje3 = Session::get('mensaje3'))
-                       <div class="message is-warning">
-                           <div class="message-body">
-                               {{ $mensaje3 }}
-                           </div>
-                       </div>
-                   @endif
+
+                   <div id="mensaje_imagen1"  class="message is-warning hide">
+                       <div class="message-body">
+                              CONTENIDO CREADO
+                        </div>
+                    </div>
                </div>
 
 
@@ -171,8 +169,9 @@
                          </a>
                     </span>
                    </div>
-                   <form method="post" id="form_content2" class="form_content1 hide" action="/contenido/secundario2/{{Session::get('s_contenido')}}" enctype="multipart/form-data">
+                   <form method="post" id="form_content2" class="form_content1 hide" action="" enctype="multipart/form-data">
                        @csrf
+                       <input type="hidden" name="idcontenido" id="hidden_content2" value="">
                        <input type="hidden" name="tipo_archivo" id="tipo_archivo2" value="imagenes">
                        <div class="field">
                            <label>Titulo Imagen</label>
@@ -189,7 +188,7 @@
                        </div>
                        <div class="file">
                            <label class="file-label">
-                               <input class="file-input" type="file" name="file_imagen" required>
+                               <input class="file-input" type="file" name="file_imagen" id="contenido_imagen2" required>
                                <span class="file-cta">
                               <span class="file-icon">
                                 <i class="fas fa-upload"></i>
@@ -208,13 +207,11 @@
                            </div>
                        </div>
                    </form>
-                   @if($mensaje4 = Session::get('mensaje4'))
-                       <div class="message is-warning">
-                           <div class="message-body">
-                               {{ $mensaje4 }}
-                           </div>
+                   <div class="message is-warning hide" id="mensaje_imagen2">
+                       <div class="message-body">
+                           CONTENIDO CREADO
                        </div>
-                   @endif
+                   </div>
                </div>
 
                <div class="noticias__primer--content">
@@ -232,8 +229,9 @@
                          </a>
                     </span>
                    </div>
-                   <form id="form_content3" class="form_content1 hide" method="post" enctype="multipart/form-data" action="/contenido/secundario3/{{Session::get('s_contenido')}}">
+                   <form id="form_content3" class="form_content1 hide" method="post" enctype="multipart/form-data" action="">
                        @csrf
+                       <input type="hidden" name="idcontenido" id="hidden_content3" value="">
                        <input type="hidden" name="tipo_archivo" id="tipo_archivo2" value="imagenes">
                        <div class="field">
                            <label>Titulo Imagen</label>
@@ -250,7 +248,7 @@
                        </div>
                        <div class="file">
                            <label class="file-label">
-                               <input class="file-input" type="file" name="file_imagen" required>
+                               <input class="file-input" type="file" name="file_imagen"  id="contenido_imagen3" required>
                                <span class="file-cta">
                               <span class="file-icon">
                                 <i class="fas fa-upload"></i>
@@ -269,20 +267,19 @@
                            </div>
                        </div>
                    </form>
-                   @if($mensaje5 = Session::get('mensaje5'))
-                       <div class="message is-warning">
-                           <div class="message-body">
-                               {{ $mensaje5 }}
-                           </div>
+                   <div class="message is-warning hide" id="mensaje_imagen3">
+                       <div class="message-body">
+                           CONTENIDO CREADO
                        </div>
-                   @endif
+                   </div>
                </div>
            </div>
 
            <div id="videos" class="content_video hide">
-               <form action="/contenido/video/{{ Session::get('s_contenido') }}"  method="post" id="form_video">
+               <form action=""  method="post" id="form_video">
                    @csrf
                    <input type="hidden" name="tipo_archivo" id="tipo_archivo" value="video">
+                   <input type="hidden" name="idcontenido" id="hidden_video" value="">
                    <div class="field">
                        <label>URL VIDEO</label>
                        <div class="control">
@@ -314,11 +311,10 @@
          </div>
         <!--  FINAL DE CONTENIDO SECUNDARIO -->
 
-
         <div id="noticias_enlaces" class="noticias_enlaces hide">
-            <form method="post"  id="noticias_enlaces" action="/contenido/enlaces/{{Session::get('s_contenido')}}">
+            <form method="post" name="form_enlaces"  id="form_enlaces" action="">
                 @csrf
-                <input type="hidden" name="tipo_archivo" id="tipo_archivo2" value="imagenes">
+                <input type="hidden" name="idcontenido" value="" id="hidden_enlaces">
                 <div class="field enlaces">
                     <div class="field control">
                         <label class="label">Primer enlace:</label>
@@ -328,7 +324,7 @@
                            <input class="input" type="text" placeholder="Ingrese titulo" name="enlace[]" required>
                        </div>
                        <div class="control">
-                           <input class="input" type="text" placeholder="Ingrese url" name="url[]" required>
+                           <input class="input" type="url" placeholder="Ingrese url" name="url[]" required>
                        </div>
                    </div>
                 </div>
@@ -342,7 +338,7 @@
                             <input class="input" type="text" placeholder="Ingrese titulo" name="enlace[]" required>
                         </div>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Ingrese url" name="url[]" required>
+                            <input class="input" type="url" placeholder="Ingrese url" name="url[]" required>
                         </div>
                     </div>
                 </div>
@@ -356,7 +352,7 @@
                             <input class="input" type="text" placeholder="Ingrese titulo" name="enlace[]" requrired>
                         </div>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Ingrese url" name="url[]" required>
+                            <input class="input" type="url" placeholder="Ingrese url" name="url[]" required>
                         </div>
                     </div>
                 </div>
@@ -370,7 +366,7 @@
                             <input class="input" type="text" placeholder="Ingrese titulo" name="enlace[]" required>
                         </div>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Ingrese url" name="url[]" required>
+                            <input class="input" type="url" placeholder="Ingrese url" name="url[]" required>
                         </div>
                     </div>
                 </div>
@@ -384,22 +380,18 @@
                             <input class="input" type="text" placeholder="Ingrese titulo" name="enlace[]" required>
                         </div>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Ingrese url" name="url[]" required>
+                            <input class="input" type="url" placeholder="Ingrese url" name="url[]" required>
                         </div>
                     </div>
                 </div>
-
                 <div class="control enlace_button">
                     <button class="button is-warning">Agregar Enlaces</button>
                 </div>
-
-                @if($mensaje2 = Session::get('mensaje2'))
-                    <div class="message is-warning">
-                        <div class="message-body">
-                            {{ $mensaje2}}
-                        </div>
-                    </div>
-                @endif
+                <div id="mensaje_enlaces" class="message is-warning hide">
+                   <div class="message-body">
+                        ENLACES CREADOS
+                   </div>
+                </div>
             </form>
         </div>
     </section>
