@@ -18,6 +18,8 @@ class MantenimientoController extends Controller
          $action = $request->input('action');
          if($action == "add"){
                $usuario = new Usuario;
+               $usuario->nombres = $request->input('nombres');
+               $usuario->apellidos = $request->input('apellidos');
                $usuario->usuario = $request->input('usuario');
                $usuario->email = $request->input('correo');
                $usuario->clave = $request->input('clave');

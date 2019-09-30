@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="{{mix('css/dashboard_root/noticias.css')}}">
 @endsection
 
-
 @section('content')
     <div class="field options_categoria">
         <div class="control">
@@ -46,10 +45,56 @@
                 </div>
             </div>
             <div class="field">
-                <div class="control">
-                    <label for="">Contenido</label>
-                    <textarea class="textarea"  name="contenido_main" placeholder="Ingrese Contenido Principal" required></textarea>
-                </div>
+                 <div class="control">
+                     <div contenteditable="true" id="editor_textarea" role="textbox" dir="ltr" aria-multiline="true"
+                      name="contenido_main" class="textarea editor" aria-required="true">
+                         <div style="font-size:15px;color:gray";>
+                           <br>
+                         </div>
+                     </div>
+                     <div id="editor"  class="editor__toolbar" role="toolbar">
+                         <div class="editor__toolbar--item">
+                             <button  type="button" tabindex="-1" aria-haspopup="false"
+                                     data-toggle="tooltip" data-placement="bottom" title="Negrita">
+                                 <div class="editor__toolbar--imagebold">
+                                     <img data-editor="bold" src="../../imagenes/bold.png"/>
+                                 </div>
+                             </button>
+                         </div>
+                         <div class="editor__toolbar--item">
+                             <button  type="button" tabindex="0" aria-haspopup="false"
+                                     data-toggle="tooltip" data-placement="bottom" title="Alinear a la Izquierda">
+                                 <div class="editor__toolbar--image">
+                                     <img  data-editor="justifyLeft" src="../../imagenes/izquierda.png"/>
+                                 </div>
+                             </button>
+                         </div>
+                         <div class="editor__toolbar--item">
+                             <button type="button" tabindex="1" aria-haspopup="false"
+                                     data-toggle="tooltip" data-placement="bottom" title="Centrar">
+                                 <div class="editor__toolbar--image">
+                                     <img   data-editor="justifyCenter" src="../../imagenes/centro.png"/>
+                                 </div>
+                             </button>
+                         </div>
+                         <div class="editor__toolbar--item">
+                             <button type="button" tabindex="2" aria-haspopup="false"
+                                     data-toggle="tooltip" data-placement="bottom" title="Alinear a la Derecha">
+                                 <div class="editor__toolbar--image">
+                                     <img data-editor="justifyRight" src="../../imagenes/derecha.png"/>
+                                 </div>
+                             </button>
+                         </div>
+                         <div class="editor__toolbar--item">
+                             <button type="button" tabindex="3" aria-haspopup="false"
+                                     data-toggle="tooltip" data-placement="bottom" title="Cursiva">
+                                 <div class="editor__toolbar--image">
+                                     <img data-editor="italic" src="../../imagenes/cursiva.png"/>
+                                 </div>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
             </div>
             <div class="file">
                 <label class="file-label">
@@ -62,6 +107,7 @@
                         Subir Imagen Principal
                      </span>
                     </span>
+                    <span class="file_main" id="file_main"></span>
                 </label>
             </div>
           <div class="field">
@@ -121,8 +167,56 @@
                        <div class="field">
                            <label>Contenido Imagen</label>
                            <div class="control">
-                               <textarea class="textarea" placeholder="Ingrese Texto Imagen" name="texto_imagen" required></textarea>
+                               <div contenteditable="true" id="editor_textarea_imagen1" role="textbox" dir="ltr" aria-multiline="true"
+                                    name="texto_imagen" class="textarea editor" aria-required="true">
+                                   <div style="font-size:15px;color:gray";>
+                                       <br>
+                                   </div>
+                               </div>
+                               <div id="editor_imagen1"  class="editor__toolbar" role="toolbar">
+                                   <div class="editor__toolbar--item">
+                                       <button  type="button" tabindex="-1" aria-haspopup="false"
+                                                data-toggle="tooltip" data-placement="bottom" title="Negrita">
+                                           <div class="editor__toolbar--imagebold">
+                                               <img data-editor="bold" src="../../imagenes/bold.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button  type="button" tabindex="0" aria-haspopup="false"
+                                                data-toggle="tooltip" data-placement="bottom" title="Alinear a la Izquierda">
+                                           <div class="editor__toolbar--image">
+                                               <img  data-editor="justifyLeft" src="../../imagenes/izquierda.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="1" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Centrar">
+                                           <div class="editor__toolbar--image">
+                                               <img   data-editor="justifyCenter" src="../../imagenes/centro.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="2" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Alinear a la Derecha">
+                                           <div class="editor__toolbar--image">
+                                               <img data-editor="justifyRight" src="../../imagenes/derecha.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="3" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Cursiva">
+                                           <div class="editor__toolbar--image">
+                                               <img data-editor="italic" src="../../imagenes/cursiva.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                               </div>
                            </div>
+
                        </div>
                        <div class="file">
                            <label class="file-label">
@@ -135,6 +229,7 @@
                                  Subir Imagen
                               </span>
                            </span>
+                           <span class="file_main" id="file_main_imagen1"></span>
                            </label>
                        </div>
                        <div class="field">
@@ -179,12 +274,61 @@
                                <input class="input" type="text" placeholder="Ingrese Titulo Imagen"  name="titulo_imagen"  required>
                            </div>
                        </div>
-
                        <div class="field">
                            <label>Contenido Imagen</label>
                            <div class="control">
-                               <textarea class="textarea" placeholder="Ingrese Texto Imagen" name="texto_imagen" required></textarea>
+                               <div contenteditable="true" id="editor_textarea_imagen2" role="textbox" dir="ltr" aria-multiline="true"
+                                    name="texto_imagen" class="textarea editor" aria-required="true">
+                                   <div style="font-size:15px;color:gray";>
+                                       <br>
+                                   </div>
+                               </div>
+                               <div id="editor_imagen2"  class="editor__toolbar" role="toolbar">
+                                   <div class="editor__toolbar--item">
+                                       <button  type="button" tabindex="-1" aria-haspopup="false"
+                                                data-toggle="tooltip" data-placement="bottom" title="Negrita">
+                                           <div class="editor__toolbar--imagebold">
+                                               <img data-editor="bold" src="../../imagenes/bold.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button  type="button" tabindex="0" aria-haspopup="false"
+                                                data-toggle="tooltip" data-placement="bottom" title="Alinear a la Izquierda">
+                                           <div class="editor__toolbar--image">
+                                               <img  data-editor="justifyLeft" src="../../imagenes/izquierda.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="1" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Centrar">
+                                           <div class="editor__toolbar--image">
+                                               <img   data-editor="justifyCenter" src="../../imagenes/centro.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="2" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Alinear a la Derecha">
+                                           <div class="editor__toolbar--image">
+                                               <img data-editor="justifyRight" src="../../imagenes/derecha.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="3" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Cursiva">
+                                           <div class="editor__toolbar--image">
+                                               <img data-editor="italic" src="../../imagenes/cursiva.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                               </div>
                            </div>
+                           <!--<div class="control">
+                               <textarea class="textarea" placeholder="Ingrese Texto Imagen" name="texto_imagen" required></textarea>
+                           </div>-->
                        </div>
                        <div class="file">
                            <label class="file-label">
@@ -196,7 +340,8 @@
                               <span class="file-label">
                                  Subir Imagen
                               </span>
-                           </span>
+                             </span>
+                             <span class="file_main" id="file_main_imagen2"></span>
                            </label>
                        </div>
                        <div class="field">
@@ -243,8 +388,58 @@
                        <div class="field">
                            <label>Contenido Imagen</label>
                            <div class="control">
-                               <textarea class="textarea" placeholder="Ingrese Texto de Imagen"  name="texto_imagen" required></textarea>
+                               <div contenteditable="true" id="editor_textarea_imagen3" role="textbox" dir="ltr" aria-multiline="true"
+                                    name="texto_imagen" class="textarea editor" aria-required="true">
+                                   <div style="font-size:15px;color:gray";>
+                                       <br>
+                                   </div>
+                               </div>
+                               <div id="editor_imagen3"  class="editor__toolbar" role="toolbar">
+                                   <div class="editor__toolbar--item">
+                                       <button  type="button" tabindex="-1" aria-haspopup="false"
+                                                data-toggle="tooltip" data-placement="bottom" title="Negrita">
+                                           <div class="editor__toolbar--imagebold">
+                                               <img data-editor="bold" src="../../imagenes/bold.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button  type="button" tabindex="0" aria-haspopup="false"
+                                                data-toggle="tooltip" data-placement="bottom" title="Alinear a la Izquierda">
+                                           <div class="editor__toolbar--image">
+                                               <img  data-editor="justifyLeft" src="../../imagenes/izquierda.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="1" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Centrar">
+                                           <div class="editor__toolbar--image">
+                                               <img   data-editor="justifyCenter" src="../../imagenes/centro.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="2" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Alinear a la Derecha">
+                                           <div class="editor__toolbar--image">
+                                               <img data-editor="justifyRight" src="../../imagenes/derecha.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                                   <div class="editor__toolbar--item">
+                                       <button type="button" tabindex="3" aria-haspopup="false"
+                                               data-toggle="tooltip" data-placement="bottom" title="Cursiva">
+                                           <div class="editor__toolbar--image">
+                                               <img data-editor="italic" src="../../imagenes/cursiva.png"/>
+                                           </div>
+                                       </button>
+                                   </div>
+                               </div>
                            </div>
+                           <!--<div class="control">
+                               <textarea class="textarea" placeholder="Ingrese Texto de Imagen"  name="texto_imagen" required></textarea>
+                           </div>-->
                        </div>
                        <div class="file">
                            <label class="file-label">
@@ -256,7 +451,8 @@
                               <span class="file-label">
                                  Subir Imagen
                               </span>
-                           </span>
+                             </span>
+                             <span class="file_main" id="file_main_imagen3"></span>
                            </label>
                        </div>
                        <div class="field">
@@ -295,7 +491,54 @@
                    <div class="field">
                        <label>TEXTO VIDEO</label>
                        <div class="control">
-                           <textarea class="textarea" placeholder="Ingrese Texto Video" name="texto_video" required></textarea>
+                           <div contenteditable="true" id="editor_textarea_video" role="textbox" dir="ltr" aria-multiline="true"
+                                name="texto_video" class="textarea editor" aria-required="true">
+                               <div style="font-size:15px;color:gray";>
+                                   <br>
+                               </div>
+                           </div>
+                           <div id="editor_video"  class="editor__toolbar" role="toolbar">
+                               <div class="editor__toolbar--item">
+                                   <button  type="button" tabindex="-1" aria-haspopup="false"
+                                            data-toggle="tooltip" data-placement="bottom" title="Negrita">
+                                       <div class="editor__toolbar--imagebold">
+                                           <img data-editor="bold" src="../../imagenes/bold.png"/>
+                                       </div>
+                                   </button>
+                               </div>
+                               <div class="editor__toolbar--item">
+                                   <button  type="button" tabindex="0" aria-haspopup="false"
+                                            data-toggle="tooltip" data-placement="bottom" title="Alinear a la Izquierda">
+                                       <div class="editor__toolbar--image">
+                                           <img  data-editor="justifyLeft" src="../../imagenes/izquierda.png"/>
+                                       </div>
+                                   </button>
+                               </div>
+                               <div class="editor__toolbar--item">
+                                   <button type="button" tabindex="1" aria-haspopup="false"
+                                           data-toggle="tooltip" data-placement="bottom" title="Centrar">
+                                       <div class="editor__toolbar--image">
+                                           <img   data-editor="justifyCenter" src="../../imagenes/centro.png"/>
+                                       </div>
+                                   </button>
+                               </div>
+                               <div class="editor__toolbar--item">
+                                   <button type="button" tabindex="2" aria-haspopup="false"
+                                           data-toggle="tooltip" data-placement="bottom" title="Alinear a la Derecha">
+                                       <div class="editor__toolbar--image">
+                                           <img data-editor="justifyRight" src="../../imagenes/derecha.png"/>
+                                       </div>
+                                   </button>
+                               </div>
+                               <div class="editor__toolbar--item">
+                                   <button type="button" tabindex="3" aria-haspopup="false"
+                                           data-toggle="tooltip" data-placement="bottom" title="Cursiva">
+                                       <div class="editor__toolbar--image">
+                                           <img data-editor="italic" src="../../imagenes/cursiva.png"/>
+                                       </div>
+                                   </button>
+                               </div>
+                           </div>
                        </div>
                    </div>
                    <div class="control">

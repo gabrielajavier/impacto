@@ -66,14 +66,15 @@ let formAjaxGetEditUser = (id) => {
     fetch(`/mantenimiento/${id}`)
        .then(response => response.json())
        .then(data => {
-               console.log(data)
                fillFormData(...data)
        })
 }
 
 
-let fillFormData = ({usuario,email,clave,estado,id}) => {
+let fillFormData = ({nombres,apellidos,usuario,email,clave,estado,id}) => {
         variables.form_user.action = `/mantenimiento/${id}`
+        variables.form_user.nombres.value = nombres
+        variables.form_user.apellidos.value = apellidos
         variables.form_user.usuario.value = usuario
         variables.form_user.correo.value = email
         variables.form_user.clave.value = clave
@@ -95,6 +96,8 @@ Array.prototype.forEach.call(variables.buttons_edit_user,(input) =>{
 variables.form_user.addEventListener('submit',function(e){
     e.preventDefault()
     formAjaxPostUser({
+        nombres:variables.form_user.nombres.value,
+        apellidos:variables.form_user.apellidos.value,
         usuario:variables.form_user.usuario.value,
         correo:variables.form_user.correo.value,
         clave:variables.form_user.clave.value,

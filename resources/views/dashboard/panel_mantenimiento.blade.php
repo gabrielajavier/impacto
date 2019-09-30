@@ -24,6 +24,18 @@
             <div id="form__actionType" class="form__actionType--title"></div>
             <div class="modal-content">
                 <div class="field">
+                    <label class="label">Nombres</label>
+                    <div class="control">
+                        <input class="input" name="nombres" type="text" placeholder="Ingrese nombres" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Apellidos</label>
+                    <div class="control">
+                        <input class="input" name="apellidos" type="text" placeholder="Ingrese apellidos" required>
+                    </div>
+                </div>
+                <div class="field">
                     <label class="label">Usuario</label>
                     <div class="control">
                         <input class="input" name="usuario" type="text" placeholder="Ingrese usuario" required>
@@ -70,6 +82,7 @@
     <table class="table">
         <thead>
           <tr class="table__row">
+            <th>Nombres</th>
             <th>Usuario</th>
             <th>Correo</th>
             <th>Estado</th>
@@ -79,6 +92,10 @@
         <tbody>
               @foreach($users as $user)
                   <tr>
+                    <td>
+                        {{ explode(' ',$user->nombres)[0]}}
+                         {{ explode(' ', $user->apellidos)[0]}}
+                    </td>
                     <td class="table__column--user">
                         <span class="table__icon--user">
                             <i class="fas fa-user"></i>

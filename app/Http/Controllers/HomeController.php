@@ -14,9 +14,8 @@ class HomeController extends Controller
     public function noticias(){
         $noticias = DB::table('contenidos')
           ->where('categoria_id',1)->get();
-        return view('categoria-noticia',['noticias' => $noticias,'categoria'=>'noticias']);
+         return view('categoria-noticia',['noticias' => $noticias,'categoria'=>'noticias']);
     }
-
 
     public function especial(){
         $especial = DB::table('contenidos')

@@ -1,5 +1,10 @@
 import v_noticias from "./variables_noticias";
 let inputs_noticias = document.querySelectorAll('#noticias_enlaces input[type="text"]')
+let editor_items = document.querySelectorAll('#editor button')
+let editor_imagen1 = document.querySelectorAll('#editor_imagen1 button')
+let editor_imagen2 = document.querySelectorAll('#editor_imagen2 button')
+let editor_imagen3 = document.querySelectorAll('#editor_imagen3 button')
+let editor_video = document.querySelectorAll('#editor_video button')
 
 
 let tabSelect = (tab_select) => {
@@ -16,6 +21,40 @@ let tabSelect = (tab_select) => {
     })
 }
 
+let editorCommand = (cmd) =>{
+    document.execCommand(cmd);
+}
+
+
+editor_items.forEach(item => {
+     item.onclick = (e) => {
+         editorCommand(e.target.dataset.editor)
+     }
+})
+
+editor_imagen1.forEach(item => {
+    item.onclick = (e) => {
+        editorCommand(e.target.dataset.editor)
+    }
+})
+
+editor_imagen2.forEach(item => {
+    item.onclick = (e) => {
+        editorCommand(e.target.dataset.editor)
+    }
+})
+
+editor_imagen3.forEach(item => {
+    item.onclick = (e) => {
+        editorCommand(e.target.dataset.editor)
+    }
+})
+
+editor_video.forEach(item => {
+    item.onclick = (e) => {
+        editorCommand(e.target.dataset.editor)
+    }
+})
 
 Array.prototype.forEach.call(v_noticias.tabs,(item)=>{
     item.onclick = (e) => {

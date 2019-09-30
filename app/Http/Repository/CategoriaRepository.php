@@ -1,16 +1,25 @@
 <?php
 
-
 namespace App\Http\Repository;
-
-
 use App\TipoContenido;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
 
 class CategoriaRepository
 {
-    public static function dataEnlaces($enlaces,$urls){
+    public static function dataEnlaces($ids,$enlaces,$urls){
+    $temp = [];
+    for($i=0;$i<5;$i++){
+        $array = array(
+            'id_enlace' => $ids[$i],
+            'titulo' => $enlaces[$i],
+            'url' => $urls[$i]
+        );
+        array_push($temp,$array);
+    }
+    return $temp;
+   }
+
+    public static function dataEnlaces2($enlaces,$urls){
         $temp = [];
         for($i=0;$i<5;$i++){
             $array = array(
@@ -21,6 +30,7 @@ class CategoriaRepository
         }
         return $temp;
     }
+
 
     public static function saveContentSecundario($request){
         $tipo_archivo = $request->get('tipo_archivo');
@@ -50,7 +60,7 @@ class CategoriaRepository
     public static function getIdCategoria($categoria){
         $idcategoria = DB::table('categoria')
             ->select('id')
-            ->where('categoria.nombre_categoria','HEROES')
+            ->where('categoria.nombre_categoria',strtoupper($categoria))
             ->get()[0]->id;
         return $idcategoria;
     }
@@ -61,6 +71,8 @@ class CategoriaRepository
             ->join('categoria','contenidos.categoria_id','=','categoria.id')
             ->where('categoria.id',$idcategoria)
             ->where('contenidos.id',$idcontenido)
+            ->select('contenidos.*','categoria.id',
+                'categoria.nombre_categoria','tipo_contenidos.*')
             ->get();
        return $contenido;
     }
@@ -70,5 +82,13 @@ class CategoriaRepository
                  ->where('enlaces.contenido_id',$idcontenido)
                  ->get();
       return $enlaces;
+    }
+
+    public static function getUsuarios($idusuario){
+       $usuario = DB::table('usuarios')
+           ->select('nombres','apellidos')
+           ->where('usuarios.id',$idusuario)
+           ->get();
+       return $usuario;
     }
 }

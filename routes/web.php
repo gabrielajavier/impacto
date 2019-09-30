@@ -32,6 +32,13 @@ Route::middleware(['login'])->group(function () {
     Route::post('/mantenimiento','MantenimientoController@addUser');
     Route::get('/mantenimiento/{id}','MantenimientoController@editUser');
     Route::post('/mantenimiento/{id}','MantenimientoController@saveEditUser');
+
+    Route::get('/panel/misposts','PostController@index');
+    Route::get('/panel/misposts/principal/{idcontenido}','PostController@getContenido');
+    Route::post('/panel/misposts/principal/{idcontenido}','PostController@updatePostPrincipal');
+    Route::get('/panel/misposts/enlaces/{idcontenido}','PostController@getEnlaces');
+    Route::get('/panel/misposts/enlaces/{idcontenido}','PostController@getEnlaces');
+    Route::post('/panel/misposts/enlaces/','PostController@updatePostEnlaces');
 });
 
 

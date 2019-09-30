@@ -16,6 +16,7 @@ class CreateContenidosTable extends Migration
             $table->string('contenidotitulo');
             $table->longText('contenidoimagen');
             $table->longText('contenidomain');
+            $table->bigInteger('contenidoviews')->default(0);
             $table->timestamps();
         });
     }

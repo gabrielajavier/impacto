@@ -16,16 +16,20 @@
             <!-- título-->
             <div class="ng-container-text title_post">
                 <h1>{{$contenidotitulo}}</h1>
-                <p>{{$contenidomain}}</p>
+                <p>{!! $contenidomain !!}</p>
             </div>
 
             <!-- autor -->
             <div class="entry-author row">
-
                 <div class="author col-sm-3">
-                    <p class="name mg-0">Miguel Castro</p>
+                  @foreach($usuario as $valor )
+                    <p class="name mg-0">
+                        {{ ucfirst(explode(" ",$valor->nombres)[0])}}
+                        {{ ucfirst(explode(" ",$valor->apellidos)[0])}}
+                    </p>
+                  @endforeach
                     <p class="date mg-0">
-                        <time>24 de febrero de 2019</time>
+                        <time>{{ $fecha }}</time>
                     </p>
                 </div>
 
@@ -52,7 +56,7 @@
                         <p class="number_photo">{{$index+1}}/3</p>
                         <div class="title_photo">
                             <h3 class="mg-0">{{$contenido->tipo_contenido_leyenda}}</h3>
-                            <p>{{$contenido->tipo_contenido_texto}}</p>
+                            <p>{!! $contenido->tipo_contenido_texto !!}</p>
                         </div>
                     </div>
                 </figure>

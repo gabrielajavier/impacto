@@ -5,13 +5,11 @@
             <section id="general-content">
                 <article>
             <div class="ng-container-media">
-                <!-- lo más visto -->
                 <div class="more_view_post">
                     <h2>NOTICIAS</h2>
-
                     @foreach($noticias as $noticia)
                     <div class="row">
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <article class="noticias_images">
                                 <figure>
                                     <a href="/contenido/{{$categoria}}/{{$noticia->id}}" title={{$noticia->contenidotitulo}}>
@@ -24,7 +22,7 @@
                                     </div>
                                 </a>
                             </article>
-                        </div>
+                     </div>
                    @endforeach
                     </div>
                     <div class="load_more_post">

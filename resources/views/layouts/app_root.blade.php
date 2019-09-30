@@ -48,6 +48,10 @@
                          <i class="fas fa-wrench"></i>
                          <a href="/panel/categoria">MANTENIMIENTO</a>
                      </li>
+                     <li class="panel__categories--item">
+                         <i class="fas fa-paste"></i>
+                         <a href="/panel/misposts">MIS POSTS</a>
+                     </li>
                  </ul>
              </div>
 

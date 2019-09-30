@@ -48,7 +48,7 @@ class CategoriaController extends Controller
         $enlaces = explode(",",$request->input('enlace'));
         $urls = explode(",",$request->input('url'));
         $bandera = false;
-        $enlaces_data = CategoriaRepository::dataEnlaces($enlaces,$urls);
+        $enlaces_data = CategoriaRepository::dataEnlaces2($enlaces,$urls);
         foreach ($enlaces_data as $enlace){
             $enlacess = new Enlace;
             $enlacess->contenido_id = $request->get('idcontenido');

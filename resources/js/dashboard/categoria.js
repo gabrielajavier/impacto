@@ -5,6 +5,12 @@ let inputs_enlaces = document.querySelectorAll("#form_enlaces input[type='text']
 let inputs_url = document.querySelectorAll("#form_enlaces input[type='url']")
 let array_enlaces = []
 let array_url = []
+let editor_textarea = document.getElementById('editor_textarea')
+let editor_textarea_video = document.getElementById('editor_textarea_video')
+let editor_textarea_imagen1 = document.getElementById('editor_textarea_imagen1')
+let editor_textarea_imagen2 = document.getElementById('editor_textarea_imagen2')
+let editor_textarea_imagen3 = document.getElementById('editor_textarea_imagen3')
+let file_main =  document.getElementById('file_main')
 
 
 let radioSelect = (radio_select) => {
@@ -36,6 +42,7 @@ let formAjaxVideo = (data) => {
     }).then(response => response.json())
        .then(data => data===true ?
           v_categorias.mensaje_video.classList.remove('hide') : '' )
+          editor_textarea_video.innerHTML = ""
           v_categorias.form_video.reset();
     setTimeout(()=>{
         v_categorias.mensaje_video.classList.add('hide')
@@ -71,7 +78,12 @@ let formAjaxPrincipal = (data) => {
                 v_categorias.hidden_video.value = data[1]
             }
         })
+        editor_textarea.innerHTML = ""
         v_categorias.form_categoria_principal.reset()
+        setTimeout(() => {
+            file_main.innerText = ""
+            v_categorias.mensaje_principal.classList.add('hide')
+        },1500)
 }
 
 let formAjaxSecundario = (data) => {
@@ -90,10 +102,8 @@ let formAjaxSecundario = (data) => {
     }).then(response => response.json())
         .then(data => data === true ? v_categorias.mensaje_imagen1.classList.remove('hide'): '')
     v_noticias.form_content1.reset()
+    editor_textarea_imagen1.innerHTML = " "
     v_noticias.form_content1.classList.add('hide')
-    setTimeout(()=>{
-        v_categorias.mensaje_imagen1.classList.add('hide')
-    },1000)
 }
 
 
@@ -113,10 +123,8 @@ let formAjaxSecundario2 = (data) => {
     }).then(response => response.json())
         .then(data => data === true ? v_categorias.mensaje_imagen2.classList.remove('hide'): '')
     v_noticias.form_content2.reset()
+    editor_textarea_imagen2.innerHTML = " "
     v_noticias.form_content2.classList.add('hide')
-    setTimeout(()=>{
-        v_categorias.mensaje_imagen2.classList.add('hide')
-    },1000)
 }
 
 
@@ -139,7 +147,7 @@ let formAjaxEnlaces = (data) => {
     array_url = []
     setTimeout(()=>{
         v_categorias.mensaje_enlaces.classList.add('hide')
-    },1000)
+    },2000)
 }
 
 let formAjaxSecundario3  = (data) => {
@@ -158,10 +166,13 @@ let formAjaxSecundario3  = (data) => {
     }).then(response => response.json())
         .then(data => data === true ? v_categorias.mensaje_imagen3.classList.remove('hide'): '')
     v_noticias.form_content3.reset()
+    editor_textarea_imagen3.innerHTML = " "
     v_noticias.form_content3.classList.add('hide')
     setTimeout(()=>{
+        v_categorias.mensaje_imagen1.classList.add('hide')
+        v_categorias.mensaje_imagen2.classList.add('hide')
         v_categorias.mensaje_imagen3.classList.add('hide')
-    },1000)
+    },2000)
 }
 /*****/
 
@@ -174,7 +185,7 @@ v_categorias.form_video.addEventListener('submit',function(e){
         tipo_archivo:v_categorias.form_video.tipo_archivo.value,
         video_url:v_categorias.form_video.video_url.value,
         titulo_video:v_categorias.form_video.titulo_video.value,
-        texto_video:v_categorias.form_video.texto_video.value,
+        texto_video:editor_textarea_video.innerHTML,
         idcontenido:v_categorias.hidden_video.value,
         action:v_categorias.form_video.action
      })
@@ -186,6 +197,11 @@ Array.prototype.forEach.call(v_categorias.inputs_radio,(item) =>{
         radioSelect(e.target.dataset.tab)
     }
 });
+
+
+v_categorias.contenido_imagen.addEventListener('change',(e)=>{
+    file_main.innerText = e.target.files[0].name
+})
 
 
 v_categorias.select_categorias.addEventListener('change',(e) => {
@@ -215,7 +231,7 @@ v_categorias.form_categoria_principal.addEventListener('submit',(e) => {
     formAjaxPrincipal({
          idcategoria:v_categorias.form_categoria_principal.idcategoria.value,
         contenido_titulo:v_categorias.form_categoria_principal.contenido_titulo.value,
-        contenido_main:v_categorias.form_categoria_principal.contenido_main.value,
+        contenido_main:editor_textarea.innerHTML,
      })
 })
 
@@ -224,7 +240,7 @@ v_noticias.form_content1.addEventListener('submit',(e) => {
      formAjaxSecundario({
          tipo_archivo:v_noticias.form_content1.tipo_archivo.value,
          titulo_imagen:v_noticias.form_content1.titulo_imagen.value,
-         texto_imagen:v_noticias.form_content1.texto_imagen.value,
+         texto_imagen:editor_textarea_imagen1.innerHTML,
          idcontenido: v_categorias.hidden_content1.value,
          action:v_noticias.form_content1.action
      })
@@ -236,7 +252,7 @@ v_noticias.form_content2.addEventListener('submit',(e) => {
     formAjaxSecundario2({
         tipo_archivo:v_noticias.form_content2.tipo_archivo.value,
         titulo_imagen:v_noticias.form_content2.titulo_imagen.value,
-        texto_imagen:v_noticias.form_content2.texto_imagen.value,
+        texto_imagen:editor_textarea_imagen2.innerHTML,
         idcontenido: v_categorias.hidden_content2.value,
         action:v_noticias.form_content2.action
     })
@@ -247,7 +263,7 @@ v_noticias.form_content3.addEventListener('submit',(e) => {
     formAjaxSecundario3({
         tipo_archivo:v_noticias.form_content3.tipo_archivo.value,
         titulo_imagen:v_noticias.form_content3.titulo_imagen.value,
-        texto_imagen:v_noticias.form_content3.texto_imagen.value,
+        texto_imagen:editor_textarea_imagen3.innerHTML,
         idcontenido: v_categorias.hidden_content3.value,
         action:v_noticias.form_content3.action
     })

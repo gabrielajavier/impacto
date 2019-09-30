@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+$font:'Roboto', sans-serif;
+$color:#464C60;
+
+.header__posts{
+   padding:1.5em;
+   border-bottom:1px solid darkgray;
+}
+
+.header__posts h2{
+    font-family:$font;
+    text-decoration:underline;
+    font-size:19px;
+    font-weight:bold;
+    color:$color;
+    margin-left:5px;
+}
+
+.table__posts--body tr td{
+    font-family:$font;
+    color:$color;
+}
+
+.table__posts--head tr th{
+    text-align:center!important;
+    font-family: $font;
+    color:$color;
+}
+
+
+.posts__link a:hover{
+    color:#33B1FF;
+}
+
+.posts__button{
+    color: #263C49;
+    border: 1px solid gray;
+    height: 24px;
+    font-size: 11px;
+    line-height: 21px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0 8px;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.modal_principal,.modal_enlaces{
+    width: 550px;
+    z-index: 20;
+    padding: 2.5em 1.5em;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+}
+
+.md__close{
+    border:1px solid gray;
+    padding:.4em .7em;
+    border-radius:50%;
+    position:absolute;
+    right:20px;
+    top:20px;
+    outline:none;
+    background:white;
+}
+
+.modal_principal h2, .modal_enlaces h2{
+    text-align: center;
+    font-family: $font;
+    text-decoration:underline;
+    color:$color;
+}
+
+
+.btn_principal,.btn_enlaces{
+    text-align:center;
+}
+
+.btn_principal button, .btn_enlaces button{
+    color:white;
+    background:#01D28E;
+    font-family: $font;
+    width:200px;
+    height:40px;
+
+}
+
+.select_posts{
+    border:1px solid gray;
+    width:450px;
+    height:30px;
+}
+
+.field{
+  width:450px;
+  margin: 10px auto 0;
+}
+
+.file-label{
+   margin:0 auto;
+}
+
+.control{
+    margin:0 auto;
+}
+
+/*Estilos del Editor*/
+.editor{
+    height:300px;
+    width:500px;
+}
+
+.editor__toolbar{
+    display:grid;
+    grid-template-columns:repeat(5,35px);
+    align-items:center;
+    border-left:.5px solid darkgray;
+    border-right:.5px solid darkgray;
+    border-bottom:.5px solid darkgray;
+}
+
+
+
+.editor__toolbar--image img{
+    width:40px;
+    height:24px;
+}
+
+.editor__toolbar--imagebold img{
+    height:20px;
+}
+
+
+.editor__toolbar--item button{
+    border:0;
+    outline:none;
+    background:white;
+}
+
+.editor__toolbar--item button:hover{
+    background:#F3F2F1;
+}
+
+
+/*helpers*/
+.hide{
+    display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,11 +18,17 @@ class UserRepository
         return DB::table('usuarios')
                ->where('id',$request->get('id'))
                ->update([
+                     'nombres' => $request->get('nombres'),
+                     'apellidos' => $request->get('apellidos'),
                      'usuario' => $request->get('usuario'),
                      'email' => $request->get('correo') ,
                      'clave' => $request->get('clave'),
-                     'estado' => $request->get('estado'),
-                     'role' => 'admin'
+                     'estado' => $request->get('estado')
               ]);
+    }
+
+    public static function getFirstName($nombres){
+        $firstname = explode(',',$nombres)[0];
+        return $firstname;
     }
 }
